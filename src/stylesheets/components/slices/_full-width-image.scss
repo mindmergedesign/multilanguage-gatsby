@@ -1,0 +1,68 @@
+/*==========  Mobile First Method  ==========*/
+
+.hero {
+  position: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.hero-img {
+  z-index: 1;
+}
+
+.about-img {
+  width: 100%;
+}
+
+.background {
+  display: none;
+  position: absolute;
+  top: 0;
+
+  img {
+    width: 790px;
+    height: 608px;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+  .hero {
+    position: relative;
+    padding-top: 110px;
+    margin-top: 50px;
+  }
+
+  .background {
+    display: flex;
+
+    .darkBg {
+      opacity: 0.3;
+    }
+
+    .lightBg {
+      opacity: 1;
+    }
+  }
+
+  .leftBg {
+    display: flex;
+    justify-self: start;
+    left: -100px;
+  }
+
+  .rightBg {
+    display: flex;
+    justify-self: end;
+    right: -100px;
+  }
+}

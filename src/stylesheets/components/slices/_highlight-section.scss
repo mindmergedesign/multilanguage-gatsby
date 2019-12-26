@@ -1,0 +1,55 @@
+.highlight {
+  .icon {
+    width: 3rem;
+  }
+  .img {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    margin-right: -110px;
+  }
+  .imgDesktop {
+    display: none;
+  }
+  .imgMobile {
+    display: block;
+  }
+
+  .description {
+    p:first-of-type {
+      strong {
+        font-size: 20px;
+        line-height: 36px;
+        margin-top: 20px;
+      }
+    }
+    p:last-of-type {
+      font-size: 16px;
+      line-height: 28px;
+      margin-top: 20px;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+  .highlight {
+    .imgDesktop {
+      display: block;
+    }
+    .imgMobile {
+      display: none;
+    }
+  }
+}

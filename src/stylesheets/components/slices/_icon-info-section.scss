@@ -1,0 +1,30 @@
+.iconInfoSection {
+  .icon {
+    width: 3rem;
+  }
+  .title {
+    margin: 20px 0;
+  }
+
+  .description {
+    strong {
+      font-size: 23px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+}

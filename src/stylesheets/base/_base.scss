@@ -1,0 +1,97 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+*,
+html {
+  // -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  list-style-type: none;
+  font-size: 16px;
+}
+::selection {
+  background: #fff7c7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #fff7c7; /* Gecko Browsers */
+}
+
+body {
+  font-family: $font-sans-serif;
+  letter-spacing: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  grid-gap: 2rem;
+  max-width: inherit;
+  margin: auto;
+}
+
+.col-2 {
+  --auto-grid-min-size: 1;
+}
+
+header,
+footer {
+  padding: 38px;
+}
+
+main {
+  padding: 8px 50px;
+}
+
+main {
+  section {
+    padding-bottom: 48px;
+  }
+}
+
+// Color themes
+
+.dark-mode {
+  color: white;
+  background-color: #252525;
+}
+
+.light-mode {
+  color: #252525;
+  background-color: white;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+  .col-2 {
+    --auto-grid-min-size: 30rem;
+  }
+
+  header,
+  main,
+  footer {
+    padding: 30px 150px;
+  }
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+  main {
+    section {
+      padding-bottom: 100px;
+    }
+  }
+}

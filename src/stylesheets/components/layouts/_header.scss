@@ -1,0 +1,59 @@
+/*==========  Mobile First Method  ==========*/
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  section {
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+
+    .logo {
+      width: 100%;
+    }
+
+    ul {
+      display: flex;
+
+      a {
+        color: inherit;
+        display: inline-block;
+        padding: 0 10px;
+        text-decoration: none;
+
+        p {
+          font-weight: 900;
+        }
+      }
+
+      .theme {
+        width: 18px;
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    section {
+      justify-content: space-between;
+      .logo {
+        width: 70%;
+      }
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+}

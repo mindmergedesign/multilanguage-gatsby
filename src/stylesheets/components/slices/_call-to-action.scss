@@ -1,0 +1,32 @@
+.callToAction {
+  text-align: center;
+}
+
+.download {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+  .callToAction {
+    text-align: inherit;
+  }
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+  .callToAction {
+    text-align: inherit;
+  }
+  .download {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

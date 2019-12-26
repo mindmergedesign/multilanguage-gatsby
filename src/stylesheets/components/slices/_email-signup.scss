@@ -1,0 +1,50 @@
+.contact {
+  .form {
+    font-weight: 900;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 4px 0;
+      height: 60px;
+      border-radius: 5px;
+    }
+    .mail {
+      padding: 0 5%;
+    }
+    .dark-mail {
+      background-color: transparent;
+      color: black;
+      border: 1px solid #2d2d2d;
+    }
+
+    .light-mail {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .dark-btn {
+      color: white;
+      background-color: black;
+    }
+
+    .light-btn {
+      color: black;
+      background-color: white;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+
+@media only screen and (min-width: $min-width-xl) {
+}

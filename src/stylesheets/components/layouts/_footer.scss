@@ -1,0 +1,42 @@
+footer {
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid #dadada;
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 50%;
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: $min-width-md) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: $min-width-l) {
+  footer {
+    .copyright {
+      justify-content: center;
+    }
+
+    .social {
+      justify-content: center;
+      img {
+        width: 50%;
+      }
+    }
+  }
+}
+
+/* Medium Devices, Desktops, Large Devices, Wide Screens */
+@media only screen and (min-width: $min-width-xl) {
+}
