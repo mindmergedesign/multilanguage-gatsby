@@ -1,5 +1,6 @@
 const { apiEndpoint } = require('./prismic-config');
 const repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint);
+const { defaultLanguage, langs } = require('./prismic-config');
 
 module.exports = {
   siteMetadata: {
@@ -24,10 +25,10 @@ module.exports = {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: repo[1], // Loads the repo name from prismic configuration
-        defaultLang: 'en-gb',
+        defaultLang: defaultLanguage,
         path: '/preview',
         previews: true,
-        langs: ['en-gb', 'fr-fr'],
+        langs: langs,
         pages: [
           {
             type: 'Homepage',

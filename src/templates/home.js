@@ -116,8 +116,8 @@ export default ({ data }) => {
   if (!data) return null
 
   // Save the data of each Document in separated variables
-  const home = data.prismic.allHomepages.edges.slice(0, 1).pop().node
-  const header = data.prismic.allMenus.edges.slice(0, 1).pop().node
+  const home = data.prismic.allHomepages.edges.length !== 0 ? data.prismic.allHomepages.edges.slice(0, 1).pop().node : null
+  const header = data.prismic.allMenus.edges.length !== 0 ? data.prismic.allMenus.edges.slice(0, 1).pop().node : null
 
   return (
     <Layout docs={header} activeDoc={home._meta}>

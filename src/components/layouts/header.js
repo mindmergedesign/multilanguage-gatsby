@@ -3,6 +3,7 @@ import { ThemeContext } from "../../context/ThemeContext"
 import { Link } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import { linkResolver } from "../../utils/linkResolver"
+import customData from "./../../utils/local"
 
 import DarkTodoop from "./../../images/darkTodoop.png"
 import LightTodoop from "./../../images/lightTodoop.png"
@@ -28,26 +29,34 @@ export default function Header(props) {
       </section>
       <section>
         <ul>
-          {props.docs.menu_links.map((btn, i) => {
+          {props.docs ? props.docs.menu_links.map((btn, i) => {
+            if (!btn) return null
             return (
               <li key={i}>
-                <Link to={linkResolver(btn.link._meta)}>
-                  {RichText.render(btn.label, linkResolver)}
+                <Link to={btn.link ? linkResolver(btn.link._meta) : "/"}>
+                  {btn.label ? RichText.render(btn.label, linkResolver) : customData.defaultTitle}
                 </Link>
               </li>
             )
-          })}
+          }) : null }
           <li>
-            {props.activeDoc.alternateLanguages.map((btn, i) => {
+            {props.activeDoc ? props.activeDoc.alternateLanguages.map((btn, i) => {
+              if (!btn) return null
               return (
-                <Link key={i} to={linkResolver(btn)}>
-                  <p>{btn.lang.slice(0, 2).toUpperCase()}</p>
+                <Link className="lang" key={i} to={btn ? linkResolver(btn) : "/"}>
+                  <p>
+                    {btn ? btn.lang.slice(0, 2).toUpperCase() : customData.lang}
+                    <span className="slash">{"/"}</span>
+                  </p>
                 </Link>
               )
-            })}
-            {"/"}
-            <Link to={linkResolver(props.activeDoc)}>
-              <p>{props.activeDoc.lang.slice(0, 2).toUpperCase()}</p>
+            }) : null }
+            <Link className="lang" to={props.activeDoc ? linkResolver(props.activeDoc) : "/"}>
+              <p>
+                {props.activeDoc.lang
+                  ? props.activeDoc.lang.slice(0, 2).toUpperCase()
+                  : customData.lang}
+              </p>
             </Link>
           </li>
           <li>
@@ -56,7 +65,7 @@ export default function Header(props) {
               <img
                 className="theme"
                 src={dark ? DarkMode : LightMode}
-                alt="coor mode"
+                alt="color mode"
               />
             </a>
           </li>

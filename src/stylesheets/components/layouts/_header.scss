@@ -16,6 +16,10 @@ header {
     ul {
       display: flex;
 
+      .lang{
+        padding: 0 4px;
+      }
+
       a {
         color: inherit;
         display: inline-block;
@@ -24,6 +28,9 @@ header {
 
         p {
           font-weight: 900;
+          .slash{
+            padding-left: 6px;
+          }
         }
       }
 

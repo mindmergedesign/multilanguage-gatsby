@@ -2,11 +2,14 @@ import React from "react"
 import { RichText } from "prismic-reactjs"
 import { ThemeContext } from "../../context/ThemeContext"
 import { linkResolver } from "./../../utils/linkResolver"
+import customData from "./../../utils/local"
 
 export default ({ slice }) => {
   const { dark } = React.useContext(ThemeContext)
 
   if (!slice) return null
+
+  const data = slice.primary;
 
   return (
     <section className="auto-grid col-2 iconInfoSection">
@@ -14,17 +17,29 @@ export default ({ slice }) => {
         <img
           className="icon"
           src={
-            dark ? slice.primary.icon_white.url : slice.primary.icon_black.url
+            dark
+              ? ( data.icon_white !== null
+                ? data.icon_white.url
+                : customData.images.light.sm )
+              : ( data.icon_black !== null
+              ? data.icon_black.url
+              : customData.images.dark.sm )
           }
           alt={
-            dark ? slice.primary.icon_white.alt : slice.primary.icon_black.alt
+            dark
+              ? ( data.icon_white !== null
+                ? data.icon_white.alt
+                : customData.images.defaultAlt )
+              : ( data.icon_black !== null
+              ? data.icon_black.alt
+              : customData.images.defaultAlt )
           }
         />
-        <h2 className="title">{RichText.asText(slice.primary.info_title)}</h2>
-        <p>{RichText.asText(slice.primary.info_text)}</p>
+        <h2 className="title">{data.info_title ? RichText.asText(data.info_title) : customData.defaultTitle }</h2>
+        <p>{data.info_text ? RichText.asText(data.info_text) : customData.defaultTitle }</p>
       </div>
       <div className="description">
-        {RichText.render(slice.primary.info_desc, linkResolver)}
+        {data.info_desc ? RichText.render(data.info_desc, linkResolver) : customData.defaultTitle }
       </div>
     </section>
   )

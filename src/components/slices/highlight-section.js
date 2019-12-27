@@ -1,40 +1,56 @@
 import React from "react"
 import { RichText } from "prismic-reactjs"
 import { ThemeContext } from "../../context/ThemeContext"
+import customData from "./../../utils/local"
 
 export default ({ slice }) => {
   const { dark } = React.useContext(ThemeContext)
 
   if (!slice) return null
+
+  const data = slice.primary;
+
   return (
     <section className="auto-grid col-2 highlight">
       <div className="imgDesktop">
         <img
           className="img"
-          src={slice.primary.highlight_image.url}
-          alt={slice.primary.highlight_image.alt}
+          src={data.highlight_image ? data.highlight_image.url : customData.images.light.md}
+          alt={data.highlight_image ? data.highlight_image.alt : customData.images.defaultAlt}
         />
       </div>
       <div>
         <img
           className="icon"
           src={
-            dark ? slice.primary.icon_white.url : slice.primary.icon_black.url
+            dark
+              ? ( data.icon_white !== null
+                ? data.icon_white.url
+                : customData.images.light.sm )
+              : ( data.icon_black !== null
+              ? data.icon_black.url
+              : customData.images.dark.sm )
           }
           alt={
-            dark ? slice.primary.icon_white.alt : slice.primary.icon_black.alt
+            dark
+              ? ( data.icon_white !== null
+                ? data.icon_white.alt
+                : customData.images.defaultAlt )
+              : ( data.icon_black !== null
+              ? data.icon_black.alt
+              : customData.images.defaultAlt )
           }
         />
-        <h2>{RichText.asText(slice.primary.highlight_title)}</h2>
+        <h2>{data.highlight_title ? RichText.asText(data.highlight_title) : customData.defaultTitle}</h2>
         <div className="description">
-          {RichText.render(slice.primary.highlight_text)}
+          {data.highlight_text ? RichText.render(data.highlight_text) : customData.defaultTitle}
         </div>
       </div>
       <div className="imgMobile">
-        <img
+      <img
           className="img"
-          src={slice.primary.highlight_image.url}
-          alt={slice.primary.highlight_image.alt}
+          src={data.highlight_image ? data.highlight_image.url : customData.images.light.md}
+          alt={data.highlight_image ? data.highlight_image.alt : customData.images.defaultAlt}
         />
       </div>
     </section>
