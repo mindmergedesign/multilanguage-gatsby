@@ -24,11 +24,11 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: repo[1], // Loads the repo name from prismic configuration
-        defaultLang: defaultLanguage,
+        repositoryName: repo[1], // Loads the repo name from prismic-config.js
+        defaultLang: defaultLanguage, // Loads the default language from prismic-config.js
         path: '/preview',
         previews: true,
-        langs: langs,
+        langs: langs, // Loads the all languages from prismic-config.js
         pages: [
           {
             type: 'Homepage',
