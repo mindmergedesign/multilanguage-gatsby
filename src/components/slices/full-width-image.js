@@ -21,7 +21,7 @@ const FullWidthImage = ({ slice }) => {
     ? slice.primary.image_black
     : slice.primary.image_white
 
-  /*We're going to do the same conditional for the background image position*/
+  /* We're going to do the same conditional for the background image position */
   const position =
     slice.primary.background_image_position === "left" ? "left-bg" : "right-bg"
 

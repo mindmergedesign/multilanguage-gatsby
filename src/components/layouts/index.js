@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
-import Header from "./header"
+import Menu from "./menu"
 import Footer from "./footer"
 import "../../stylesheets/main.scss"
 import { ThemeProvider } from "../../context/theme-context"
@@ -47,7 +47,7 @@ const Layout = props => {
         />
       </Helmet>
       <ThemeProvider>
-        <Header menuLinks={props.menuLinks} activeDoc={props.activeDoc} />
+        <Menu menuLinks={props.menuLinks} activeDoc={props.activeDoc} />
         <main>{props.children}</main>
         <Footer />
       </ThemeProvider>

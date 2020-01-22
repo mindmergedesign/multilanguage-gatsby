@@ -8,7 +8,7 @@ import LightTodoop from "./../../images/lightTodoop.png"
 import DarkMode from "./../../images/darkMode.png"
 import LightMode from "./../../images/lightMode.png"
 
-const Header = props => {
+const Menu = props => {
   if (!props) return null
   /*
    * After importing the Themecontext we will use the toggle
@@ -79,4 +79,4 @@ const Header = props => {
   )
 }
 
-export default Header
+export default Menu
