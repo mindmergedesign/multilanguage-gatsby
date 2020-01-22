@@ -1,52 +1,56 @@
 import React from "react"
-import { ThemeContext } from "../../context/ThemeContext"
-import customData from "./../../utils/local"
+import { ThemeContext } from "../../context/theme-context"
 
-export default ({ slice }) => {
-  const { dark } = React.useContext(ThemeContext)
+const FullWidthImage = ({ slice }) => {
+  /*
+   * After importing the Themecontext we will use the
+   * isDark variable that will work as an indicator to choose
+   * the className indicated for each theme.
+   */
+  const { isDark } = React.useContext(ThemeContext)
 
-  if (!slice) return null
-  
-  const data = slice.primary;
+  /*
+   * Use a ternary operator to check if the image matchign thr theme exists
+   * if not, render an alternate image and then
+   * use this variable to conditionaly render your images
+   */
+  const whiteMainImg = slice.primary.image_white
+    ? slice.primary.image_white
+    : slice.primary.image_black
+  const blackMainImg = slice.primary.image_black
+    ? slice.primary.image_black
+    : slice.primary.image_white
+
+  /*We're going to do the same conditional for the background image position*/
+  const position =
+    slice.primary.background_image_position === "left" ? "left-bg" : "right-bg"
 
   return (
-    <section className="auto-grid hero">
+    <section className="full-width-image auto-grid">
       <div className="hero-img">
         <img
-          className="about-img"
-          src={
-            dark
-              ? ( data.image_white !== null
-                ? data.image_white.url
-                : customData.images.light.lg )
-              : ( data.image_black !== null
-              ? data.image_black.url
-              : customData.images.dark.lg )
-          }
-          alt={
-            dark
-              ? ( data.image_white !== null
-                ? data.image_white.alt
-                : customData.images.defaultAlt )
-              : ( data.image_black !== null
-              ? data.image_black.alt
-              : customData.images.defaultAlt )
-          }
+          className="main-img"
+          src={isDark ? whiteMainImg.url : blackMainImg.url}
+          alt={isDark ? whiteMainImg.alt : blackMainImg.alt}
         />
       </div>
-      <div
-        className={`background ${
-          data.background_image_position === "left"
-            ? "leftBg"
-            : "rightBg"
-        }`}
-      >
+      <div className={`background ${position}`}>
         <img
-          className={`${dark ? "darkBg" : "lightBg"}`}
-          src={data.background_image ? data.background_image.url : customData.images.dark.lg }
-          alt={data.background_image ? data.background_image.alt : customData.images.defaultAlt}
+          className={`${isDark ? "dark-bg" : "light-bg"}`}
+          src={
+            slice.primary.background_image
+              ? slice.primary.background_image.url
+              : null
+          }
+          alt={
+            slice.primary.background_image
+              ? slice.primary.background_image.alt
+              : " "
+          }
         />
       </div>
     </section>
   )
 }
+
+export default FullWidthImage

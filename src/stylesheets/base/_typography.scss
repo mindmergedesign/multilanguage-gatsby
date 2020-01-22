@@ -22,8 +22,9 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-  line-height: 2.5625rem;
+  font-size: 32px;
+  line-height: 45px;
+  font-weight: 600;
 }
 
 h3 {
@@ -52,11 +53,11 @@ p {
 }
 
 pre {
-  white-space: pre-wrap; // css-3
-  white-space: -moz-pre-wrap; // Mozilla, since 1999
-  white-space: -pre-wrap; // Opera 4-6
-  white-space: -o-pre-wrap; // Opera 7
-  word-wrap: break-word; // Internet Explorer 5.5+
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word;  /* Internet Explorer 5.5+ */
 }
 
 strong {
@@ -67,10 +68,6 @@ em {
   font-style: italic;
 }
 
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
-}
-
 /* Small Devices, Tablets */
 @media only screen and (min-width: $min-width-l) {
   h1 {
@@ -79,12 +76,8 @@ em {
   }
 
   h2 {
-    font-size: 3rem;
-    line-height: 3.5625rem;
+    line-height: 67px;
+    font-size: 48px;
+    font-weight: 600;
   }
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-
-@media only screen and (min-width: $min-width-xl) {
 }

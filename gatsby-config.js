@@ -1,12 +1,12 @@
-const { apiEndpoint } = require('./prismic-config');
-const repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint);
-const { defaultLanguage, langs } = require('./prismic-config');
+const { apiEndpoint } = require("./prismic-config")
+const repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint)
+const { defaultLanguage, langs } = require("./prismic-config")
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Multi-language site`,
+    description: `Sample Multi-language Website with API-based CMS (Prismic) & Gatsby.js`,
+    author: `@PaulinaVPG`,
   },
   plugins: [
     `gatsby-plugin-catch-links`,
@@ -24,25 +24,30 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: repo[1], // Loads the repo name from prismic-config.js
-        defaultLang: defaultLanguage, // Loads the default language from prismic-config.js
-        path: '/preview',
+        repositoryName:
+          repo[1] /* Loads the repo name from prismic-config.js */,
+        defaultLang: defaultLanguage /*  Loads the default language from prismic-config.js */,
+        path: "/preview/preview",
         previews: true,
-        langs: langs, // Loads the all languages from prismic-config.js
+        langs: langs /* Loads the all languages from prismic-config.js */,
         pages: [
           {
-            type: 'Homepage',
-            match: '/:lang?',
-            path: '/:lang?',
-            component: require.resolve('./src/templates/home.js'),
+            type: "Homepage",
+            match: "/:lang?",
+            path: "/:lang?",
+            component: require.resolve("./src/templates/homepage.js"),
           },
           {
-          type: 'Page',          // Custom type of the document
-          match: '/blog/:lang?/:uid',   // Pages will be generated in this pattern
-          path: '/blog/:lang?', // Placeholder route for previews
-          component: require.resolve('./src/templates/post.js') // Template file
-        }]
-      }
+            type: "Page" /* Custom type of the document */,
+            match:
+              "/page/:lang?/:uid" /* Pages will be generated in this pattern */,
+            path: "/page/:lang?" /* Placeholder route for previews */,
+            component: require.resolve(
+              "./src/templates/page.js"
+            ) /* Template file */,
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -59,11 +64,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-use-dark-mode",
       options: {
-         classNameDark: "dark-mode",
-         classNameLight: "light-mode",
-         storageKey: "darkMode",
-         minify: true,
+        classNameDark: "dark-mode",
+        classNameLight: "light-mode",
+        storageKey: "darkMode",
+        minify: true,
       },
-    }
+    },
   ],
 }

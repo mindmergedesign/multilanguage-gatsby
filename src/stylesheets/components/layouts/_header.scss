@@ -3,20 +3,25 @@
 header {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 1080px;
+  margin: auto;
 
-  section {
+  .menu {
     padding: 12px;
     display: flex;
     justify-content: center;
 
     .logo {
-      width: 100%;
+      height: 25px;
+      margin-right: 4px;
+      vertical-align: text-top;
     }
-
     ul {
       display: flex;
+      align-items: baseline;
 
-      .lang{
+      .lang {
         padding: 0 4px;
       }
 
@@ -25,18 +30,18 @@ header {
         display: inline-block;
         padding: 0 10px;
         text-decoration: none;
-
-        p {
-          font-weight: 900;
-          .slash{
-            padding-left: 6px;
-          }
+        font-size: 1rem;
+        font-weight: 600;
+        .slash {
+          padding-left: 6px;
         }
       }
 
-      .theme {
+      img {
         width: 18px;
         padding-top: 5px;
+        margin: -3px 9px;
+        cursor: pointer;
       }
     }
   }
@@ -47,20 +52,11 @@ header {
   header {
     flex-direction: row;
     justify-content: space-between;
-    section {
+    .menu {
       justify-content: space-between;
       .logo {
         width: 70%;
       }
     }
   }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width: $min-width-l) {
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-
-@media only screen and (min-width: $min-width-xl) {
 }

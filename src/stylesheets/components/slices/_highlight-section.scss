@@ -1,55 +1,58 @@
-.highlight {
-  .icon {
-    width: 3rem;
+.highlight-section {
+  align-items: unset;
+  padding-bottom: 30px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  
+  .highlight-image {
+    order: 2;
+    margin: 0;
   }
-  .img {
-    position: relative;
-    top: 0px;
-    left: 0px;
+  
+  .highlight-image img {
     width: 100%;
-    height: auto;
-    margin-right: -110px;
   }
-  .imgDesktop {
-    display: none;
+  
+  .highlight-image {
+    margin: 0;
+    padding-top: 20px;
   }
-  .imgMobile {
-    display: block;
+  
+  .highlight-content {
+    margin-bottom: 30px;
+    text-align: left;
   }
-
-  .description {
-    p:first-of-type {
-      strong {
-        font-size: 20px;
-        line-height: 36px;
-        margin-top: 20px;
-      }
-    }
-    p:last-of-type {
-      font-size: 16px;
-      line-height: 28px;
-      margin-top: 20px;
-    }
+  .highlight-content h2 {
+    margin-top: 20px;
+  }
+  
+  .highlight-content > p:first-of-type {
+    font-size: 20px;
+    line-height: 36px;
+    margin-top: 20px;
+  }
+  .highlight-content > p:last-of-type {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 20px;
   }
 }
 
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
-}
+
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: $min-width-l) {
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-
-@media only screen and (min-width: $min-width-xl) {
-  .highlight {
-    .imgDesktop {
-      display: block;
+  .highlight-section {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 110px;
+    .highlight-image {
+      margin-right: 60px;
     }
-    .imgMobile {
-      display: none;
+  
+    .highlight-image img {
+      width: 516px;
     }
   }
 }

@@ -1,16 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layouts"
-import Slices from "../components/slices"
+import SliceZone from "../components/SliceZone"
 
-// Query the corresponding documents to create your pages.
-// In this case we are querying 'allPages', with the variables: uid and lang.
-// and 'allMenus', with the variable: lang
+/* Query the corresponding documents to create your pages.
+*In this case we are querying 'allHomepages', with the variable: lang.
+and 'allMenus', with the variable: lang */
 
 export const query = graphql`
-  query myPost($uid: String, $lang: String) {
+  query myHome($lang: String) {
     prismic {
-      allPages(uid: $uid, lang: $lang) {
+      allHomepages(lang: $lang) {
         edges {
           node {
             _meta {
@@ -27,7 +27,7 @@ export const query = graphql`
             }
             page_content {
               __typename
-              ... on PRISMIC_PagePage_contentCall_to_action {
+              ... on PRISMIC_HomepagePage_contentCall_to_action {
                 type
                 primary {
                   action_title
@@ -36,7 +36,7 @@ export const query = graphql`
                   black_button
                 }
               }
-              ... on PRISMIC_PagePage_contentFull_width_image {
+              ... on PRISMIC_HomepagePage_contentFull_width_image {
                 type
                 primary {
                   background_image_position
@@ -45,17 +45,17 @@ export const query = graphql`
                   image_black
                 }
               }
-              ... on PRISMIC_PagePage_contentHighlight_section {
+              ... on PRISMIC_HomepagePage_contentIcon_info_section {
                 type
                 primary {
-                  highlight_image
-                  icon_black
                   icon_white
-                  highlight_title
-                  highlight_text
+                  icon_black
+                  info_title
+                  info_text
+                  info_desc
                 }
               }
-              ... on PRISMIC_PagePage_contentEmail_signup {
+              ... on PRISMIC_HomepagePage_contentEmail_signup {
                 type
                 primary {
                   email_title
@@ -112,20 +112,24 @@ export const query = graphql`
   }
 `
 
-export default ({ data }) => {
+const Homepage = ({ data }) => {
   if (!data) return null
 
-  // Save the data of each Document in separated variables
-  const post = data.prismic.allPages.edges.length !== 0 ? data.prismic.allPages.edges.slice(0, 1).pop().node : null
-  const header = data.prismic.allMenus.edges.length !== 0 ? data.prismic.allMenus.edges.slice(0, 1).pop().node : null
+  /* Save the data of each Document in separated variables */
+  const homepage =
+    data.prismic.allHomepages.edges.length !== 0
+      ? data.prismic.allHomepages.edges.slice(0, 1).pop().node
+      : null
+  const menu =
+    data.prismic.allMenus.edges.length !== 0
+      ? data.prismic.allMenus.edges.slice(0, 1).pop().node
+      : null
 
   return (
-    <Layout docs={header} activeDoc={post._meta}>
-      {/* Render the edit button */}
-      <div data-wio-id={post.id}>
-        {/* Go through the slices of the post and render the appropiate one */}
-        <Slices slices={post.page_content} />
-      </div>
+    <Layout menuLinks={menu} activeDoc={homepage._meta}>
+      <SliceZone slices={homepage.page_content} />
     </Layout>
   )
 }
+
+export default Homepage

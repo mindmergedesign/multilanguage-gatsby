@@ -1,30 +1,45 @@
-.iconInfoSection {
-  .icon {
-    width: 3rem;
-  }
+.icon-info-section {
   .title {
-    margin: 20px 0;
+    h2 {
+      max-width: 415px;
+      margin: 30px 0px 20px 0px;
+    }
+    p {
+      max-width: 1075px;
+      line-height: 40px;
+      font-size: 23px;
+      font-weight: 500;
+    }
   }
 
   .description {
-    strong {
-      font-size: 23px;
+    margin-left: 0;
+    h6 {
+      font-size: 20px;
+      line-height: 36px;
     }
     p {
+      max-width: 1075px;
+      line-height: 30px;
+      margin-top: 10px;
       font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 20px;
     }
   }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: $min-width-l) {
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-
-@media only screen and (min-width: $min-width-xl) {
+  .icon-info-section {
+    display: flex;
+    flex-direction: row;
+    .description {
+      h6 {
+        font-size: 20px;
+        line-height: 36px;
+      }
+      margin-left: 135px;
+    }
+  }
 }

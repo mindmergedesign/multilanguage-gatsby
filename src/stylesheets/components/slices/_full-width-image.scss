@@ -1,6 +1,6 @@
 /*==========  Mobile First Method  ==========*/
 
-.hero {
+.full-width-image {
   position: 0;
   padding-top: 0;
   margin-top: 0;
@@ -10,7 +10,7 @@
   z-index: 1;
 }
 
-.about-img {
+.main-img {
   width: 100%;
 }
 
@@ -25,18 +25,9 @@
   }
 }
 
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width: $min-width-l) {
-}
-
 /* Medium Devices, Desktops, Large Devices, Wide Screens */
-
 @media only screen and (min-width: $min-width-xl) {
-  .hero {
+  .full-width-image {
     position: relative;
     padding-top: 110px;
     margin-top: 50px;
@@ -45,22 +36,22 @@
   .background {
     display: flex;
 
-    .darkBg {
+    .dark-bg {
       opacity: 0.3;
     }
 
-    .lightBg {
+    .light-bg {
       opacity: 1;
     }
   }
 
-  .leftBg {
+  .left-bg {
     display: flex;
     justify-self: start;
     left: -100px;
   }
 
-  .rightBg {
+  .right-bg {
     display: flex;
     justify-self: end;
     right: -100px;

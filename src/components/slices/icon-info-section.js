@@ -1,46 +1,50 @@
 import React from "react"
 import { RichText } from "prismic-reactjs"
-import { ThemeContext } from "../../context/ThemeContext"
-import { linkResolver } from "./../../utils/linkResolver"
-import customData from "./../../utils/local"
+import { ThemeContext } from "../../context/theme-context"
+import { linkResolver } from "./../../utils/link-resolver"
 
-export default ({ slice }) => {
-  const { dark } = React.useContext(ThemeContext)
+const IconInfoSection = ({ slice }) => {
+  /*
+   * After importing the Themecontext we will use the
+   * isDark variable that will work as an indicator to choose
+   * the className indicated for each theme.
+   */
+  const { isDark } = React.useContext(ThemeContext)
 
-  if (!slice) return null
+  /*
+   * Use a ternary operator to check if the image matchign thr theme exists
+   * if not, render an alternate image and then
+   * use this variable to conditionaly render your images
+   */
 
-  const data = slice.primary;
+  const whiteIcon = slice.primary.icon_white
+    ? slice.primary.icon_white
+    : slice.primary.icon_black
+  const blackIcon = slice.primary.icon_black
+    ? slice.primary.icon_black
+    : slice.primary.icon_white
 
   return (
-    <section className="auto-grid col-2 iconInfoSection">
-      <div>
+    <section className="icon-info-section">
+      <div className="title">
         <img
-          className="icon"
-          src={
-            dark
-              ? ( data.icon_white !== null
-                ? data.icon_white.url
-                : customData.images.light.sm )
-              : ( data.icon_black !== null
-              ? data.icon_black.url
-              : customData.images.dark.sm )
-          }
-          alt={
-            dark
-              ? ( data.icon_white !== null
-                ? data.icon_white.alt
-                : customData.images.defaultAlt )
-              : ( data.icon_black !== null
-              ? data.icon_black.alt
-              : customData.images.defaultAlt )
-          }
+          src={isDark ? whiteIcon.url : blackIcon.url }
+          alt={isDark ? whiteIcon.alt : blackIcon.alt }
         />
-        <h2 className="title">{data.info_title ? RichText.asText(data.info_title) : customData.defaultTitle }</h2>
-        <p>{data.info_text ? RichText.asText(data.info_text) : customData.defaultTitle }</p>
+        {slice.primary.info_title
+          ? RichText.render(slice.primary.info_title)
+          : "Untitled"}
+        {slice.primary.info_text
+          ? RichText.render(slice.primary.info_text)
+          : " "}
       </div>
       <div className="description">
-        {data.info_desc ? RichText.render(data.info_desc, linkResolver) : customData.defaultTitle }
+        {slice.primary.info_desc
+          ? RichText.render(slice.primary.info_desc, linkResolver)
+          : " "}
       </div>
     </section>
   )
 }
+
+export default IconInfoSection

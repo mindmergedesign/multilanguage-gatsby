@@ -2,6 +2,8 @@ footer {
   font-style: italic;
   text-align: center;
   border-top: 1px solid #dadada;
+  display: flex;
+  flex-direction: column;
 
   .copyright {
     display: flex;
@@ -9,34 +11,24 @@ footer {
   }
 
   .social {
+    padding-top: 4%;
     display: flex;
     justify-content: center;
     img {
-      width: 50%;
+      padding: 5px 16px;
+      width: 19px;
     }
   }
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width: $min-width-md) {
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width: $min-width-l) {
   footer {
-    .copyright {
-      justify-content: center;
-    }
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     .social {
-      justify-content: center;
-      img {
-        width: 50%;
-      }
+      padding-top: 0;
     }
   }
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-@media only screen and (min-width: $min-width-xl) {
 }

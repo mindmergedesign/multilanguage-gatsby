@@ -1,43 +1,45 @@
 import React from "react"
 import { RichText } from "prismic-reactjs"
-import { ThemeContext } from "../../context/ThemeContext"
-import customData from "./../../utils/local"
+import { ThemeContext } from "../../context/theme-context"
 
-export default ({ slice }) => {
-  const { dark } = React.useContext(ThemeContext)
+const CallToAction = ({ slice }) => {
+  /*
+   * After importing the Themecontext we will use the
+   * isDark variable that will work as an indicator to choose
+   * the className indicated for each theme.
+   */
+  const { isDark } = React.useContext(ThemeContext)
 
-  if (!slice) return null
-
-  const data = slice.primary;
+  /*
+   * Use a ternary operator to check if the image matchign thr theme exists
+   * if not, render an alternate image and then
+   * use this variable to conditionaly render your images
+   */
+  const whiteButton = slice.primary.white_button
+    ? slice.primary.white_button
+    : slice.primary.black_button
+  const blackButton = slice.primary.black_button
+    ? slice.primary.black_button
+    : slice.primary.white_button
 
   return (
-    <section className="auto-grid col-2 callToAction">
+    <section className="call-to-action">
       <div>
-        <h1>{data.action_title ? RichText.asText(data.action_title) : customData.defaultTitle}</h1>
-        <p>{data.action_text ? RichText.asText(data.action_text) : customData.defaultText}</p>
+        {slice.primary.action_title
+          ? RichText.render(slice.primary.action_title)
+          : "Untitled"}
+        {slice.primary.action_text
+          ? RichText.render(slice.primary.action_text)
+          : " "}
       </div>
       <div className="download">
         <img
-          src={
-            dark
-              ? ( data.white_button !== null
-                ? data.white_button.url
-                : customData.images.light.sm )
-              : ( data.black_button !== null
-              ? data.black_button.url
-              : customData.images.dark.sm )
-          }
-          alt={
-            dark
-              ? ( data.white_button !== null
-                ? data.white_button.alt
-                : customData.images.defaultAlt )
-              : ( data.black_button !== null
-              ? data.black_button.alt
-              : customData.images.defaultAlt )
-          }
+          src={isDark ? whiteButton.url : blackButton.url}
+          alt={isDark ? whiteButton.alt : blackButton.alt}
         />
       </div>
     </section>
   )
 }
+
+export default CallToAction

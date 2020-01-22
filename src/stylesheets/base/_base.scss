@@ -3,13 +3,12 @@
 /* Custom, iPhone Retina */
 *,
 html {
-  // -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   list-style-type: none;
-  font-size: 16px;
 }
 ::selection {
   background: #fff7c7; /* WebKit/Blink Browsers */
@@ -35,63 +34,50 @@ button:focus {
   );
   grid-gap: 2rem;
   max-width: inherit;
-  margin: auto;
 }
 
-.col-2 {
-  --auto-grid-min-size: 1;
-}
-
+main,
 header,
 footer {
-  padding: 38px;
-}
-
-main {
-  padding: 8px 50px;
+  padding: 30px 60px;
+  margin: 0 auto;
 }
 
 main {
   section {
-    padding-bottom: 48px;
+    padding-bottom: 8%;
   }
 }
 
-// Color themes
+/* Color themes */
 
 .dark-mode {
   color: white;
-  background-color: #252525;
+  background-color: #151515;
 }
 
 .light-mode {
-  color: #252525;
+  color: rgba(0, 0, 0, 0.8);
   background-color: white;
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: $min-width-l) {
-  .col-2 {
-    --auto-grid-min-size: 30rem;
-  }
-
   header,
-  main,
   footer {
-    padding: 30px 150px;
+    padding: 38px 80px;
   }
 }
 
 /* Medium Devices, Desktops, Large Devices, Wide Screens */
 
 @media only screen and (min-width: $min-width-xl) {
+  header,
+  footer {
+    padding: 38px 7%;
+  }
   main {
-    section {
-      padding-bottom: 100px;
-    }
+    max-width: 1080px;
+    margin: auto;
   }
 }

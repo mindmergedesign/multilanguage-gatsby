@@ -1,32 +1,50 @@
-.callToAction {
+.call-to-action {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 43px;
+    line-height: 4rem;
+  }
+  p {
+    margin-top: 20px;
+    max-width: 691px;
+    line-height: 40px;
+    font-size: 23px;
+    font-weight: 500;
+  }
 }
 
 .download {
   display: flex;
-  justify-content: center;
-  align-self: flex-end;
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
+  align-self: center;
+  padding-top: 20px;
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: $min-width-l) {
-  .callToAction {
+  .call-to-action {
+    padding-top: 40px;
     text-align: inherit;
-  }
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-
-@media only screen and (min-width: $min-width-xl) {
-  .callToAction {
-    text-align: inherit;
-  }
-  .download {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    h1 {
+      line-height: inherit;
+      max-width: 645px;
+      font-size: 100px;
+      letter-spacing: 0;
+      font-weight: 600;
+    }
+    p {
+      max-width: 617px;
+    }
+    .download {
+      display: flex;
+      align-self: flex-end;
+      justify-content: flex-end;
+    }
   }
 }

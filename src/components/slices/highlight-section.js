@@ -1,58 +1,61 @@
 import React from "react"
 import { RichText } from "prismic-reactjs"
-import { ThemeContext } from "../../context/ThemeContext"
-import customData from "./../../utils/local"
+import { ThemeContext } from "../../context/theme-context"
 
-export default ({ slice }) => {
-  const { dark } = React.useContext(ThemeContext)
+const HighlightSection = ({ slice }) => {
+  /*
+   * After importing the Themecontext we will use the
+   * isDark variable that will work as an indicator to choose
+   * the className indicated for each theme.
+   */
+  const { isDark } = React.useContext(ThemeContext)
 
-  if (!slice) return null
-
-  const data = slice.primary;
+  /*
+   * Use a ternary operator to check if the image matchign thr theme exists
+   * if not, render an alternate image and then
+   * use this variable to conditionaly render your images
+   */
+  const whiteIcon = slice.primary.icon_white
+    ? slice.primary.icon_white
+    : slice.primary.icon_black
+  const blackIcon = slice.primary.icon_black
+    ? slice.primary.icon_black
+    : slice.primary.icon_white
 
   return (
-    <section className="auto-grid col-2 highlight">
-      <div className="imgDesktop">
-        <img
-          className="img"
-          src={data.highlight_image ? data.highlight_image.url : customData.images.light.md}
-          alt={data.highlight_image ? data.highlight_image.alt : customData.images.defaultAlt}
-        />
+    <section className="highlight-section">
+      <div className="highlight-image">
+        <picture>
+          <source
+            srcSet={slice.primary.highlight_image.Mobileview.url}
+            alt={slice.primary.highlight_image.Mobileview.alt}
+            media="(max-width: 500px)"
+          />
+          <source
+            srcSet={slice.primary.highlight_image.Tabletview.url}
+            alt={slice.primary.highlight_image.Tabletview.alt}
+            media="(max-width: 1100px)"
+          />
+          <img
+            src={slice.primary.highlight_image.url}
+            alt={slice.primary.highlight_image.alt}
+          />
+        </picture>
       </div>
-      <div>
+      <div className="highlight-content">
         <img
-          className="icon"
-          src={
-            dark
-              ? ( data.icon_white !== null
-                ? data.icon_white.url
-                : customData.images.light.sm )
-              : ( data.icon_black !== null
-              ? data.icon_black.url
-              : customData.images.dark.sm )
-          }
-          alt={
-            dark
-              ? ( data.icon_white !== null
-                ? data.icon_white.alt
-                : customData.images.defaultAlt )
-              : ( data.icon_black !== null
-              ? data.icon_black.alt
-              : customData.images.defaultAlt )
-          }
+          src={isDark ? whiteIcon.url : blackIcon.url}
+          alt={isDark ? whiteIcon.alt : blackIcon.alt}
         />
-        <h2>{data.highlight_title ? RichText.asText(data.highlight_title) : customData.defaultTitle}</h2>
-        <div className="description">
-          {data.highlight_text ? RichText.render(data.highlight_text) : customData.defaultTitle}
-        </div>
-      </div>
-      <div className="imgMobile">
-      <img
-          className="img"
-          src={data.highlight_image ? data.highlight_image.url : customData.images.light.md}
-          alt={data.highlight_image ? data.highlight_image.alt : customData.images.defaultAlt}
-        />
+        {slice.primary.highlight_title
+          ? RichText.render(slice.primary.highlight_title)
+          : "Untitled"}
+        {slice.primary.highlight_text
+          ? RichText.render(slice.primary.highlight_text)
+          : " "}
       </div>
     </section>
   )
 }
+
+export default HighlightSection

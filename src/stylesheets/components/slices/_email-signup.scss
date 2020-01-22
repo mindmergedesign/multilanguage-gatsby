@@ -1,16 +1,45 @@
-.contact {
+.email-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      max-width: 723px;
+      line-height: 40px;
+      font-weight: 500;
+      text-align: center;
+      font-size: 23px;
+    }
+  }
   .form {
     font-weight: 900;
     padding-left: 0;
     display: flex;
     flex-direction: column;
+    p {
+      margin: 1rem 0 0rem;
+      text-align: center;
+      line-height: 1.5;
+      font-weight: 500;
+      font-size: 1rem;
+    }
     input {
       margin: 4px 0;
       height: 60px;
       border-radius: 5px;
     }
     .mail {
-      padding: 0 5%;
+      border-radius: 6px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      width: 390px;
+      font-size: 18px;
+      height: 66px;
+      margin-top: 10px;
     }
     .dark-mail {
       background-color: transparent;
@@ -36,15 +65,29 @@
   }
 }
 
-/* Extra Small Devices, Phones */
-@media only screen and (min-width: $min-width-md) {
-}
-
 /* Small Devices, Tablets */
 @media only screen and (min-width: $min-width-l) {
-}
-
-/* Medium Devices, Desktops, Large Devices, Wide Screens */
-
-@media only screen and (min-width: $min-width-xl) {
+  .email-signup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .description {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      p {
+        text-align: left;
+        max-width: 723px;
+        line-height: 40px;
+        font-size: 23px;
+        font-weight: 500;
+      }
+    }
+    .form {
+      margin-left: 165px;
+      p {
+        text-align: left;
+      }
+    }
+  }
 }
