@@ -1,5 +1,5 @@
 export { default as CallToAction } from "./call-to-action"
-export { default as FullWidthImage } from "./full-width-image"
-export { default as IconInfoSection } from "./icon-info-section"
-export { default as HighlightSection } from "./highlight-section"
 export { default as EmailSignup } from "./email-signup"
+export { default as FullWidthImage } from "./full-width-image"
+export { default as HighlightSection } from "./highlight-section"
+export { default as IconInfoSection } from "./icon-info-section"

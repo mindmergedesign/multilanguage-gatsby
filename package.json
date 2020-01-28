@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "multi-language-site",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Sample Multi-language Website with API-based CMS (Prismic) & Gatsby.js",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "@PaulinaVPG <paulina.gavilan@prismic.io>",
   "dependencies": {
     "eslint-plugin-react": "^7.17.0",
     "gatsby": "^2.16.1",
@@ -14,14 +14,12 @@
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-sass": "^2.1.20",
     "gatsby-plugin-sharp": "^2.2.31",
-    "gatsby-plugin-use-dark-mode": "^1.1.2",
     "gatsby-source-filesystem": "^2.1.33",
-    "gatsby-source-prismic-graphql": "3.4.0-beta.2",
+    "gatsby-source-prismic-graphql": "3.4.1-alpha.0",
     "gatsby-transformer-sharp": "^2.2.23",
     "node-sass": "^4.13.0",
     "prismic-javascript": "^2.1.1",
     "prismic-reactjs": "^1.1.1",
-    "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
@@ -33,23 +31,16 @@
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.18.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "serve": "gatsby serve"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

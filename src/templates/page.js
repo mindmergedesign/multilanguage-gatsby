@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layouts"
 import SliceZone from "../components/SliceZone"
 
-/* Query the corresponding documents to create your pages.
- *In this case we are querying 'allPages', with the variables: uid and lang.
+/* Query the required documents from Prismic to generate the page.
+ * In this case we are querying 'allPages', with the variables: uid and lang.
   and 'allMenus', with the variable: lang */
 
 export const query = graphql`
@@ -113,7 +113,7 @@ export const query = graphql`
 `
 
 const Page = ({ data }) => {
-  if (!data) return null
+  
 
   /* Save the data of each Document in separated variables */
   const page =
@@ -125,6 +125,8 @@ const Page = ({ data }) => {
       ? data.prismic.allMenus.edges.slice(0, 1).pop().node
       : null
 
+  if (!page) return null
+  console.log("pageData", page)
   return (
     <Layout menuLinks={menu} activeDoc={page._meta}>
       <SliceZone slices={page.page_content} />

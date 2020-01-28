@@ -1,8 +1,10 @@
 import React from "react"
-import { ThemeContext } from "../../context/theme-context"
 import { Link } from "gatsby"
 import { RichText } from "prismic-reactjs"
+
+import { ThemeContext } from "../../context/theme-context"
 import { linkResolver } from "../../utils/link-resolver"
+
 import DarkTodoop from "./../../images/darkTodoop.png"
 import LightTodoop from "./../../images/lightTodoop.png"
 import DarkMode from "./../../images/darkMode.png"

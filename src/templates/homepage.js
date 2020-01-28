@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layouts"
 import SliceZone from "../components/SliceZone"
 
-/* Query the corresponding documents to create your pages.
+/* Query the required documents from Prismic to generate the homepage.
 *In this case we are querying 'allHomepages', with the variable: lang.
 and 'allMenus', with the variable: lang */
 
@@ -116,14 +116,8 @@ const Homepage = ({ data }) => {
   if (!data) return null
 
   /* Save the data of each Document in separated variables */
-  const homepage =
-    data.prismic.allHomepages.edges.length !== 0
-      ? data.prismic.allHomepages.edges.slice(0, 1).pop().node
-      : null
-  const menu =
-    data.prismic.allMenus.edges.length !== 0
-      ? data.prismic.allMenus.edges.slice(0, 1).pop().node
-      : null
+  const homepage = data.prismic.allHomepages.edges.slice(0, 1).pop().node
+  const menu = data.prismic.allMenus.edges.slice(0, 1).pop().node
 
   return (
     <Layout menuLinks={menu} activeDoc={homepage._meta}>

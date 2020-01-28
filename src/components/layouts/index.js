@@ -1,10 +1,12 @@
 import React, { Fragment } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+
 import Menu from "./menu"
 import Footer from "./footer"
-import "../../stylesheets/main.scss"
+
 import { ThemeProvider } from "../../context/theme-context"
+import "../../stylesheets/main.scss"
 
 const staticQuery = graphql`
   query SiteQuery {

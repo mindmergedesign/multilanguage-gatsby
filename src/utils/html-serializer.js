@@ -1,8 +1,8 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Link as PrismicLink } from "prismic-reactjs"
 import { Elements } from "prismic-richtext"
 import { linkResolver } from "./link-resolver"
-import { Link } from "gatsby"
 
 /* -- The HTML Serializer
  This function will be used to modify the way that a Rich Text or Title field is rendered. */

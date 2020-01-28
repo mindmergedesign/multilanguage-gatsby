@@ -1,20 +1,23 @@
 # Prismic Gatsby Example Multi-language Website 
 
-> [Gatsby](https://www.gatsbyjs.org/) example multi-language website with content managed in [Prismic](https://prismic.io)
+[Gatsby](https://www.gatsbyjs.org/) example multi-language website with content managed in [Prismic](https://prismic.io)
 
-## Check out our article for a step by step guide to getting this project up and running
+## Getting started
+Check out [this article](https://intercom.help/prismicio/examples/gatsby-js-samples/sample-multi-language-with-api-based-cms-gatsbyjs) for a step-by-step guide to getting this project up and running.
 
-> [Prismic project guide](https://intercom.help/prismicio/examples/gatsby-js-samples/sample-multi-language-with-api-based-cms-gatsbyjs)
+## Launching the project in your local environment
 
-## Launch this project in your local environment
-
-Run the following commands:
+Run the following command to install the project dependencies:
 
 ``` bash
 npm install
+```
+After the dependencies have been installed, run the following command to start the project:
+
+``` bash
 npm start
 ```
-Then you can access it at [http://localhost:8000](http://localhost:8000).
+Then you can see the project up and running at [http://localhost:8000](http://localhost:8000).
 
 ## Launching the project in production
 
@@ -27,7 +30,7 @@ npm run serve
 
 ## Learn more about using Prismic with Gatsby.js
 
-> [Prismic Gatsby.js Documentation](https://prismic.io/docs/reactjs/getting-started/prismic-gatsby)
+Check our the [Prismic Gatsby documentation](https://prismic.io/docs/reactjs/getting-started/prismic-gatsby) to learn how to work with this two technologies
 
 ## License
 
