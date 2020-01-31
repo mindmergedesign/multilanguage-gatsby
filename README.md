@@ -15,18 +15,10 @@ npm install
 After the dependencies have been installed, run the following command to start the project:
 
 ``` bash
-npm start
+gatsby develop
 ```
 Then you can see the project up and running at [http://localhost:8000](http://localhost:8000).
 
-## Launching the project in production
-
-Run the following commands to compile the project and launch the server for production:
-
-``` bash
-npm run build
-npm run serve
-```
 
 ## Learn more about using Prismic with Gatsby.js
 
